@@ -31,17 +31,9 @@ func MarshalExecRsp(req proto.Message) (*ExecRsp, error) {
 }
 
 func UnmarshalExecReq(req *ExecReq, msg proto.Message) error {
-	if req == nil {
-		return nil
-	}
-
 	return anypb.UnmarshalTo(req.GetPayload(), msg, proto.UnmarshalOptions{})
 }
 
 func UnmarshalExecRsp(rsp *ExecRsp, msg proto.Message) error {
-	if rsp == nil {
-		return nil
-	}
-
 	return anypb.UnmarshalTo(rsp.GetReply(), msg, proto.UnmarshalOptions{})
 }
