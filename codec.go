@@ -18,12 +18,12 @@ func MarshalExecReq(req proto.Message) (*ExecReq, error) {
 	return &ExecReq{Payload: payload}, nil
 }
 
-func MarshalExecRsp(req proto.Message) (*ExecRsp, error) {
+func MarshalExecRsp(rsp proto.Message) (*ExecRsp, error) {
 	var (
 		err   error
 		reply *any.Any
 	)
-	if reply, err = anypb.New(req); err != nil {
+	if reply, err = anypb.New(rsp); err != nil {
 		return nil, err
 	}
 
